@@ -1,0 +1,450 @@
+@import "./var";
+@import "./fonts";
+@import "./reset";
+
+/* Style -------------------------------------------------------------------- */
+body {
+	background-color: #fafafa;
+	font-family: $openSansR;
+}
+
+.no-scroll {
+	position: fixed;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+// Header--------------------------
+.header {
+	background-color: $bgHeader;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	box-shadow: 0px 3px 10px 0px rgba(50, 50, 50, 0.75);
+
+	&_opacity {
+		background-color: rgba(245, 246, 250, .8);
+		transition: all .2s ease;
+
+		&:hover {
+			background-color: rgba(245, 246, 250, 1);
+		}
+	}
+}
+
+.logo {
+	display: block;
+	position: relative;
+	top: 4px;
+
+	&__img {
+		max-height: 30px;
+	}
+}
+
+.nav {
+	text-align: right;
+	position: relative;
+}
+
+.mob-menu {
+	display: block;
+	width: 40px;
+	height: 40px;
+	position: relative;
+
+	&__line {
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translate(0, -50%);
+		width: 100%;
+		height: 5px;
+		border-radius: 2px;
+		background-color: #353b48;
+
+		&:after,
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: translateY(-10px);
+			width: 100%;
+			height: 5px;
+			border-radius: 2px;
+			background-color: #353b48;
+		}
+		
+		&:before {
+			transform: translateY(10px);
+		}
+	}
+}
+
+.close-menu {
+	display: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+	right: 15px;
+	
+	&:before,
+	&:after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%) rotate(45deg);
+		left: 0;
+		right: 0;
+		height: 5px;
+		border-radius: 2px;
+		background-color: #353b48;
+	}
+
+	&:after {
+		transform: translate(0, -50%) rotate(135deg);
+	}
+}
+
+.menu {
+	display: inline-block;
+
+	&__item {
+		display: inline-block;
+
+		&:nth-child(n+2) {
+			margin-left: 10px;
+		}
+
+		&_login {
+			display: none;
+		}
+	}
+
+	&__link {
+		color: #000;
+		transition: all .2s ease;
+		font-size: 16px;
+
+		&:hover {
+			color: $cBlue;
+		}
+
+		&_active {
+			color: $cBlue;
+		}
+	}
+}
+
+.entrance {
+	display: inline-block;
+	margin-left: 20px;
+
+	&__item {
+		display: inline-block;
+		text-align: center;
+
+		&:nth-child(n+2) {
+			margin-left: 10px;
+		}
+
+		&_exit {
+			display: none;
+		}
+	}
+}
+
+.wrap-menu.login {
+
+	.menu {
+
+		.menu__item_login {
+			display: inline-block;
+		}
+	}
+
+	.entrance {
+
+		.entrance__item {
+
+			&_personal {
+				display: none;
+			}
+
+			&_exit {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.bg {
+	display: none;
+}
+
+// btn ----------------------------------------
+.btn {
+	display: inline-block;
+	min-width: 70px;
+	border-radius: 25px;
+	padding: 5px 10px;
+	color: #fff;
+	background-color: #353b48;
+	transition: all .2s ease;
+
+	&:hover {
+		color: #fff;
+	}
+	
+	&_entrance {
+
+		&:hover {
+			background-color: $cEnter;
+		}
+	}
+
+	&_reg {
+
+		&:hover {
+			background-color: $cReg;
+		}
+	}
+
+	&_exit {
+
+		&:hover {
+			background-color: $cExit;
+		}
+	}
+
+	&_form {
+		min-width: 140px;
+		padding: 10px 15px;
+		font-size: 18px;
+
+		&:hover {
+			background-color: $cEnter;
+		}
+	}
+}
+
+// All --------------------------------------------
+.main-wrap {
+	margin-top: 90px;
+}
+
+.heading {
+	text-align: center;
+	font-size: 32px;
+	line-height: 32px;
+	color: $cBlue;
+
+	&_main {
+		margin-top: 30px;
+		line-height: 40px;
+	}
+}
+
+.subtitle {
+	color: #000;
+	font-size: 18px;
+	line-height: 20px;
+
+	&_main {
+		margin-top: 15px;
+	}
+}
+
+.paragraf {
+	font-family: $openSansR;
+
+	&:nth-child(n+2) {
+		margin-top: 10px;
+	}
+
+	&_graf {
+		text-align: center;
+	}
+
+	a {
+		color: $cBlue;
+	}
+}
+
+.up {
+	text-transform: uppercase;
+}
+
+// Main -------------------------------------------
+.main {
+	margin-top: 60px;
+}
+
+.main-content {
+	margin-top: 25px;
+}
+
+.wrap-img {
+	margin-top: 15px;
+	position: relative;
+
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	&__inner {
+		text-align: center;
+	}
+}
+
+.num-list {
+	counter-reset: num;
+	
+	li {
+		padding-left: 30px;
+		margin-top: 10px;
+		position: relative;
+
+		&:before {
+			counter-increment: num;
+			content: "" counter(num) ". ";
+			position: absolute;
+			top: 0;
+			left: 8px;
+			font-weight: 700;
+		}
+	}
+}
+
+// FAQ ---------------------------------------------
+.faq-wrap {
+	font-family: $loto;
+}
+
+.faq-item {
+	margin-top: 30px;
+
+	&:last-child {
+		margin-bottom: 30px;
+	}
+}
+
+.wrap-faq-text {
+	margin-top: 15px;
+}
+
+// Advice -------------------------------------------
+.advice-wrap {
+	font-family: $loto;
+}
+
+.wrap-advice-text {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+// Forms ----------------------------------------------
+.log-inner {
+	max-width: 400px;
+	width: 100%;
+	text-align: center;
+	margin: 100px auto 50px;
+	background-color: #ffffff;
+	padding: 20px 15px;
+	box-shadow: 0px 5px 13px 0px rgba(50, 50, 50, 0.75);
+
+	&__title {
+		font-size: 21px;
+		font-weight: 700;
+		margin-bottom: 20px;
+	}
+}
+
+.group { 
+	position: relative; 
+	margin-bottom: 45px;
+}
+  
+.group input,
+.group select {
+	font-size: 16px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #757575;
+	border-radius: 0;
+	background-color: #fff;
+}
+  
+label {
+	color: #999; 
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	transition: all 0.2s ease; 
+}
+  
+input:focus ~ label,
+.has-content ~ label,
+select ~ label {
+	top: -20px;
+	font-size: 14px;
+	color: $cBlue;
+}
+  
+.bar {
+	position: relative; 
+	display: block; 
+	width: 100%;
+
+	&:before,
+	&:after {
+		content: '';
+		height: 2px; 
+		width: 0;
+		bottom: 0; 
+		position: absolute;
+		background: $cBlue; 
+		transition: 0.2s ease all; 
+	}
+
+	&:before {
+		left: 50%;
+	}
+
+	&:after {
+		right: 50%; 
+	}
+}
+  
+input:focus ~ .bar:before,
+input:focus ~ .bar:after,
+select ~ .bar:before,
+select ~ .bar:after,
+.has-content ~ .bar:before,
+.has-content ~ .bar:after {
+	width: 50%;
+}
+
+// Footer ---------------------------
+.footer {
+	background-color: #535c68;
+	padding: 30px 0;
+	margin-top: 40px;
+}
+
+/* Media -------------------------------------------------------------------- */
+@import "./media";

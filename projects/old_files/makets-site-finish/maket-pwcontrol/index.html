@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pwcontrol</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>
+		$(document).ready(function() {
+			var submitMessageIn = $('.in_coments');
+
+			$('#message').on('keyup',function(){
+		  var $this = $(this),
+		      val = $this.val();
+		  
+		  if(val.length >= 1){
+		    $('#submit-message').show(100);
+		  }
+		  else {
+		    $('#submit-message').hide(100);
+		  }
+		  return false;
+		});
+
+			$('#submit-message').click(function() {
+				var val = $("#message").val();
+				$('#message').val('');
+				$('#message').html();
+				submitMessageIn.prepend('<div class="in-in_coments">' + '<div class="coments_user">' + '<img src="image/user-silhouette.png" alt="user">' + '<a href="#">Dark</a>' + '<span>12:00</span>' + '</div>' + '<p>' + val + '</p>' + '</div>');
+				return false;
+			});
+
+		$('.switchs a').click(function(){
+	    $('.switchs a').removeClass('active');
+      $(this).addClass('active');
+
+});
+
+			$('.switchs a').click(function(){
+        clearInterval(interval);
+        var integer = $(this).attr('rel');	
+        $('.in-carousel').animate({left:-711*(parseInt(integer)-1)})
+        $('.switchs a').each(function(){
+            $('.switchs a .active').removeClass('active');
+            if($(this).hasClass('switchs'+integer)){
+                $(this).addClass('active')}
+        });
+    });
+        Next();
+        interval = setInterval ( function(){Next();}, 3000 );
+    });
+    
+    function Next(){
+        var _next = false;
+        $('.switchs a').each(function(){
+            if(_next){
+                $(this).addClass('active');
+                _next = false;
+            }
+            else if($(this).hasClass('active')){
+                _next = true;
+                $(this).removeClass('active')
+            }
+            
+        });  
+        if(_next)
+            $(".switchs a:eq(0)").addClass("active");
+        
+       var activeIndex = parseInt($(".active").attr("rel"));
+       $('.in-carousel').animate({left:-711*(parseInt(activeIndex)-1)});      
+    }
+
+	</script>
+</head>
+<body>
+	<header class="first">
+		<div class="in_first">
+			<div class="entrance">
+				<form action="#">
+					<input placeholder="Логин" type="text">
+					<input placeholder="Пароль" type="password">
+					<input value="Вход" type="submit">	
+				</form>	
+			</div>
+			<div class="check_in">
+				<span>
+					<a href="#">Забыл пароль</a>
+				</span>
+				<span>: :</span>
+				<span>
+					<a href="#">Регистрация</a>
+				</span>
+			</div>
+		</div>
+	</header>
+	<main>
+		<header class="second">
+			<div class="logo_bg"><img src="image/logo_bg.png" alt="logo_bg">
+				<div class="control_logo"><img src="image/logo.png" alt="control"></div>
+			</div>
+			<nav class="menu">
+					<ul>
+						<li><a href="#">ГЛАВНАЯ</a></li>
+						<li><a href="#">ФОРУМ</a></li>
+						<li><a href="#">УСТАВ</a></li>
+						<li><a href="#">ПРИЛОЖЕНИЕ К УСТАВУ</a></li>
+						<li><a href="#">ВСТУПЛЕНИЕ</a></li>
+						<li><a href="#">СКРИПТ</a></li>
+						<li><a href="#">СКРИПТ JR</a></li>
+						<li><a href="#">КОС-ЛИСТ</a></li>
+						<li><a href="#">ФОТОАЛЬБОМЫ</a></li>
+					</ul>
+				</nav>
+		</header>
+		<div class="contener clearfix">
+			<div class="contener_second">
+				<div class="control_header">
+					<div class="slider">
+						<div class="carousel clearfix">
+							<div class="in-carousel">
+								<div class="carousel-items">
+									<img src="image/pwcontrol_slider.jpg" alt="slider">
+									<span>Slider</span>
+									<span>for the clan</span>
+								</div>
+								<div class="carousel-items">
+									<img src="image/pwcontrol_slider.jpg" alt="slider">
+								</div>	
+								<div class="carousel-items">
+									<img src="image/pwcontrol_slider.jpg" alt="slider">
+								</div>	
+								<div class="carousel-items">
+									<img src="image/pwcontrol_slider.jpg" alt="slider">
+								</div>	
+								<div class="carousel-items">
+									<img src="image/pwcontrol_slider.jpg" alt="slider">
+								</div>	
+							</div>		
+						</div>	
+						<div class="switchs">
+              <a class="switch1" rel="1"></a>
+              <a class="switch2" rel="2"></a>
+              <a class="switch3" rel="3"></a>
+              <a class="switch4" rel="4"></a>
+              <a class="switch5 active" rel="5"></a>
+            </div>
+					</div>
+					<div class="article_welcome">
+						<div class="welcome">Добро пожаловать на официальный сайт клана CoN<span>T</span>RoL</div>
+						<div class="description">
+							<div class="in_description">
+								<div class="img_pwcontrol"><img src="image/pwcontrol_news.jpg" alt="pwcontrol"></div>
+								<div class="paragraf"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi iure, similique, nam veniam modi, aut nemo temporibus soluta, reiciendis quia vel nostrum cumque repellat culpa reprehenderit est. Consequatur voluptate nisi omnis optio, officiis. Quae natus excepturi vero harum laboriosam libero tempore accusamus est fuga adipisci at sit pariatur, perspiciatis iste labore rerum, aspernatur quas nisi consequatur quibusdam voluptatibus? Officia, in.</p></div>
+								<form action="#">
+									<input value="Подробнее..." type="submit">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="news">
+					<div class="in_news">Новости</div>
+					<div class="news_description">
+						<div class="news_in_description">
+							<div class="img_pwcontrol"><img src="image/pwcontrol_news.jpg" alt="pwcontrol"></div>
+							<div class="link"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></div>
+							<div class="news_paragraf"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quo, vitae illum voluptatem beatae et asperiores numquam suscipit natus repellat veritatis, consectetur eum. Eligendi eos, laudantium a quod reiciendis voluptates. Explicabo, aspernatur soluta dolores distinctio asperiores in. Officiis eum, molestias.</p></div>
+							<form action="#">
+								<input value="Подробнее..." type="submit">
+							</form>
+						</div>
+					</div>
+					<div class="news_description2">
+						<div class="news_in_description2">
+							<div class="img_pwcontrol"><img src="image/pwcontrol_news.jpg" alt="pwcontrol"></div>
+							<div class="link"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></div>
+							<div class="news_paragraf"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga voluptatum consequuntur, repellat asperiores laborum architecto laboriosam! Eligendi rerum perspiciatis hic architecto nihil, ullam nisi accusantium sequi labore distinctio illum iste reiciendis soluta eius optio consectetur, laudantium suscipit aspernatur quae ipsa illo! Recusandae odit quos voluptate, cupiditate, porro ea nemo ratione temporibus veritatis praesentium ipsa ab?</p></div>
+							<form action="#">
+								<input value="Подробнее..." type="submit">
+							</form>
+						</div>
+					</div>
+					<div class="news_description">
+						<div class="news_in_description">
+							<div class="img_pwcontrol"><img src="image/pwcontrol_news.jpg" alt="pwcontrol"></div>
+							<div class="link"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></div>
+							<div class="news_paragraf"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia, blanditiis tenetur esse autem, veritatis eius dolores iste eaque sint neque quos aspernatur eum nulla itaque saepe doloribus iure fugit assumenda!</p></div>
+							<form action="#">
+								<input value="Подробнее..." type="submit">
+							</form>
+						</div>
+					</div>
+					<div class="news_description2">
+						<div class="news_in_description2">
+							<div class="img_pwcontrol"><img src="image/pwcontrol_news.jpg" alt="pwcontrol"></div>
+							<div class="link"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing.</a></div>
+							<div class="news_paragraf"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga voluptatum consequuntur, repellat asperiores laborum architecto laboriosam! Eligendi rerum perspiciatis hic architecto nihil, ullam nisi accusantium sequi labore distinctio illum iste reiciendis soluta eius optio consectetur, laudantium suscipit aspernatur quae ipsa illo! Recusandae odit quos voluptate, cupiditate, porro ea nemo ratione temporibus veritatis praesentium ipsa ab?</p></div>
+							<form action="#">
+								<input value="Подробнее..." type="submit">
+							</form>
+						</div>
+					</div>
+					<div class="transition clearfix">
+						<div class="forward"><a href="#">вперед</a></div>
+						<div class="pages">
+							<ul>
+								<li class="active2"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">...</a></li>
+								<li><a href="#">24</a></li>
+								<li><a href="#">25</a></li>
+								<li><a href="#">26</a></li>
+								<li><a href="#">27</a></li>
+							</ul>
+						</div>
+						<div class="backward"><a href="#">назад</a></div>
+					</div>
+				</div>
+			</div>
+			<div class="contener_first">
+				<div class="chat">
+					<span>Мини-чат</span>
+					<div class="coments">
+						<div class="in_coments clearfix">
+							<div class="in-in_coments">
+								<div class="coments_user"><img src="image/user-silhouette.png" alt="user"><a href="#">Dark</a><span>12:00</span></div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum blanditiis repellendus ad nesciunt eligendi sed laudantium culpa asperiores et harum.</p>
+							</div>
+							<div class="in-in_coments">
+								<div class="coments_user"><img src="image/user-silhouette.png" alt="user"><a href="#">Dark</a><span>12:00</span></div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, ratione?</p>
+							</div>
+							<div class="in-in_coments">
+								<div class="coments_user"><img src="image/user-silhouette.png" alt="user"><a href="#">Dark</a><span>12:00</span></div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, cum.</p>
+							</div>
+							<div class="in-in_coments">
+								<div class="coments_user"><img src="image/user-silhouette.png" alt="user"><a href="#">Dark</a><span>12:00</span></div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, possimus.</p>
+							</div>
+							<div class="in-in_coments">
+								<div class="coments_user"><img src="image/user-silhouette.png" alt="user"><a href="#">Dark</a><span>12:00</span></div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, qui.</p>
+							</div>
+							<div class="in-in_coments">
+								<div class="coments_user"><img src="image/user-silhouette.png" alt="user"><a href="#">Dark</a><span>12:00</span></div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, iusto.</p>
+							</div>
+							<div class="in-in_coments">
+								<div class="coments_user"><img src="image/user-silhouette.png" alt="user"><a href="#">Dark</a><span>12:00</span></div>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, blanditiis!</p>
+							</div>
+						</div>
+					</div>
+					<div class="sent">
+						<form action="#">
+							<textarea id="message" placeholder="Сообщение" maxlength="200"></textarea>
+							<p></p>
+							<input id="submit-message" value="Отправить" type="submit">
+						</form>
+						<p></p>
+						<div><a href="#"></a></div>
+						<div><a href="#"></a></div>
+						<div><a href="#"></a></div>
+						<span>200</span>
+					</div>
+				</div>
+				<div class="statistics">
+					<div class="in_statistics1"><span>Статистика посещаемости</span></div>
+					<div class="in_statistics2">
+						<div><span>Онлайн всего:</span> 6</div>
+						<div><span>Гостей:</span> 2</div>
+						<div><span>Пользователей:</span> 4</div>
+					</div>
+					<div class="in_statistics3">
+						<div><span>Kiryuxa</span>, Vergil, SPARTAN, Feyaseksi, TAHATOC, <span>Feyaseksi</span>, SPARTAN, SOKOLIK, NIFINTITI, jambazi, IsMyLovE, DrUly@, Стрелок, Балкарец, <span>SoulEater</span>, Trowar, <span>$EW@</span>, LORDIS, Euro, KisSCool, CrAdLo, Kros, <span>DIAMAND75</span>, PROXY, OvErLoRd, Espi, Nadezhda), CrAdLo, Kros, regos, demon, ERESTOR, [MrDemon], Мока, MONsTER, Ghost,</div>
+						<div><a href="#">[Смотреть полный список]</a></div>
+					</div>
+				</div>
+				<div class="social">
+					<div><span>Мы есть в социальных сетях</span></div>
+					<div>
+						<ul>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+							<li><a href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<nav class="menu2">
+			<ul>
+				<li><a href="#">ГЛАВНАЯ</a></li>
+				<li><a href="#">ФОРУМ</a></li>
+				<li><a href="#">УСТАВ</a></li>
+				<li><a href="#">ПРИЛОЖЕНИЕ К УСТАВУ</a></li>
+				<li><a href="#">ВСТУПЛЕНИЕ</a></li>
+				<li><a href="#">СКРИПТ</a></li>
+				<li><a href="#">СКРИПТ JR</a></li>
+				<li><a href="#">КОС-ЛИСТ</a></li>
+				<li><a href="#">ФОТОАЛЬБОМЫ</a></li>
+			</ul>
+		</nav>
+		<div>© 2012-2013 CoNTRoL - Давно выяснено, что при оценке дизайна икомпозиции читаемый текст мешает сосредоточиться. Все права защищены.</div>
+	</footer>
+</body>
+</html>
